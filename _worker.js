@@ -4738,7 +4738,7 @@ async function 生成随机IP(request, count = 16, 指定端口 = -1, TLS = true
 		const 目标端口 = 指定端口 === -1
 			? cfport[Math.floor(Math.random() * cfport.length)]
 			: (TLS ? 指定端口 : (NOTLS端口[TLS端口.indexOf(Number(指定端口))] ?? 指定端口));
-		return `${ip}:${目标端口}#${cfname}-${ip}`;
+		return `${ip}:${目标端口}#${cfname}-${request.cf.colo}-${ip}`;
 	});
 	return [randomIPs, randomIPs.join('\n')];
 }
